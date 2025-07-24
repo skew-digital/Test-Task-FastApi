@@ -1,0 +1,2 @@
+git config --global user.name "Skew Digital"
+git config --global user.email "info@skew.digital"
