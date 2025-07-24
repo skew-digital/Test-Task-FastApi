@@ -31,9 +31,9 @@ CATEGORIES:
       "reproduction_steps": ["Step 1", "Step 2", "Step 3"],
       "priority": "Low|Medium|High|Critical",
       "assigned_team": "Engineering|QA|DevOps"
-    },
-    "customer_response": "Thank you for reporting this issue. We've created ticket BUG-1001 and our team will investigate shortly."
-  }
+    }
+  },
+  "customer_response": "Thank you for reporting this issue."
 }
 
 for feature request :
@@ -51,9 +51,11 @@ for feature request :
       "complexity_estimate": "Low|Medium|High|Complex",
       "affected_components": ["Component 1", "Component 2"],
       "status": "Under Review"
-    },
-    "customer_response": "Thank you for your feature suggestion"
-  }
+    }
+  },
+  "customer_response": "Thank you for your feature suggestion."
+}
+
 }
 
 For GENERAL INQUIRIES:
@@ -65,17 +67,15 @@ For GENERAL INQUIRIES:
     "requires_human_review": true,
     "suggested_resources": [
       {"title": "Resource Name", "url": "https://example.com/help"}
-    ],
-    "customer_response": "Thank you for your inquiry. We'll get back to you shortly with the information you need."
-  }
+    ]
+  },
+  "customer_response": "Thank you for your inquiry. We'll get back to you shortly with the information you need."
 }
 
 ID GENERATION RULES:
 - Bug reports: BUG-XXXX (where XXXX is 4-digit number)
 - Feature requests: FR-XXXX (where XXXX is 4-digit number)
 - Use unique sequential numbers for each type
-
-
 
 IMPORTANT:
 - Return ONLY valid JSON, no markdown formatting or additional text
@@ -93,21 +93,12 @@ IMPORTANT:
             {"role": "user", "content": user_prompt},
         ],
         temperature=0.3,
-        
     )
 
     # Validate JSON response
     try:
         json_response = response.choices[0].message.content
-        json.loads(json_response) 
+        json.loads(json_response)
         return json_response
     except json.JSONDecodeError:
         raise ValueError("Invalid JSON response from OpenAI")
-
-
-
-
-
-
-
-

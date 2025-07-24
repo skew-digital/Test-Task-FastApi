@@ -21,7 +21,6 @@ class BugTicket(BaseModel):
 
 class BugReportResponseData(BaseModel):
     ticket: BugTicket
-    customer_response: str
 
 
 # Feature request response data
@@ -38,7 +37,6 @@ class ProductRequirement(BaseModel):
 
 class FeatureRequestResponseData(BaseModel):
     product_requirement: ProductRequirement
-    customer_response: str
 
 
 # General inquiry response data
@@ -53,7 +51,6 @@ class GeneralInquiryResponseData(BaseModel):
     ]
     requires_human_review: bool
     suggested_resources: List[SuggestedResource]
-    customer_response: str
 
 
 class CustomerResponse(BaseModel):
@@ -62,3 +59,4 @@ class CustomerResponse(BaseModel):
     response_data: Union[
         BugReportResponseData, FeatureRequestResponseData, GeneralInquiryResponseData
     ]
+    customer_response: str
